@@ -37,7 +37,7 @@ export default function Login() {
       localStorage.setItem("user_name", name); 
       localStorage.setItem("user_role", role || "USER");
 
-      window.location.href = "/home";
+      navigate("/home");
       
     } catch (err) {
       // THE FIX: Extraction Logic
