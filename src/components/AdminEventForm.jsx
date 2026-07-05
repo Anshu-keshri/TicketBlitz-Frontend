@@ -98,11 +98,11 @@ function AdminEventForm({ onClose, refreshData, initialData, venues }) {
 
             if (initialData && initialData.id) {
                 // UPDATE (PUT)
-                await axios.put(`http://localhost:8080/api/events/${initialData.id}`, finalData, config);
+                await axios.put(`https://ticketblitz-backend-v7zy.onrender.com/api/events/${initialData.id}`, finalData, config);
                 alert("✅ Experience Updated Successfully!");
             } else {
                 // CREATE (POST)
-                await axios.post('http://localhost:8080/api/events/create', finalData, config);
+                await axios.post('https://ticketblitz-backend-v7zy.onrender.com/api/events/create', finalData, config);
                 alert("🚀 Experience Launched!");
             }
             
