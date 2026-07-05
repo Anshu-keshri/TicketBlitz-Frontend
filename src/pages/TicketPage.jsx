@@ -29,7 +29,7 @@ const TicketPage = () => {
     const fetchEventDetails = useCallback(async () => {
         try {
             const token = localStorage.getItem("jwt_token");
-            const res = await axios.get(`http://localhost:8080/api/events/${eventId}`, {
+            const res = await axios.get(`https://ticketblitz-backend-v7zy.onrender.com/api/events/${eventId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const eventData = res.data;
@@ -48,7 +48,7 @@ const TicketPage = () => {
     }, [eventId, navigate]);
 
     const connectWebSocket = useCallback(() => {
-        const socket = new SockJS('http://localhost:8080/ws');
+        const socket = new SockJS('https://ticketblitz-backend-v7zy.onrender.com/ws');
         const stompClient = Stomp.over(socket);
         stompClient.debug = null;
 
@@ -101,7 +101,7 @@ const TicketPage = () => {
                 transactionId: `TXN_BLITZ_${Math.floor(100000 + Math.random() * 900000)}`
             };
 
-            await axios.post(`http://localhost:8080/api/stock/purchase`, payload, { 
+            await axios.post(`https://ticketblitz-backend-v7zy.onrender.com/api/stock/purchase`, payload, { 
                 headers: { Authorization: `Bearer ${token}` } 
             });
             
