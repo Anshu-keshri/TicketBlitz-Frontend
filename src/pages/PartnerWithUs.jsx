@@ -50,7 +50,7 @@ export default function PartnerWithUs() {
             };
 
             // SECURE TRANSMISSION to PostgreSQL Registry
-            await axios.post("http://localhost:8080/api/partners/apply", payload);
+            await axios.post("https://ticketblitz-backend-v7zy.onrender.com/api/partners/apply", payload);
             
             setSuccess(true);
             setRefreshTrigger(prev => prev + 1); // ATOMIC SYNC: Refreshes registry below immediately
