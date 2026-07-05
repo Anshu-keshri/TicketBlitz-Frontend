@@ -33,7 +33,7 @@ export default function PastEventsSection() {
         const fetchPast = async () => {
             const token = localStorage.getItem("jwt_token");
             try {
-                const res = await axios.get('http://localhost:8080/api/events', {
+                const res = await axios.get('https://ticketblitz-backend-v7zy.onrender.com/api/events', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 
@@ -137,7 +137,7 @@ function ExperienceModal({ event, onClose }) {
         const fetchReviews = async () => {
             const token = localStorage.getItem("jwt_token");
             try {
-                const res = await axios.get(`http://localhost:8080/api/reviews/${event.id}`, {
+                const res = await axios.get(`https://ticketblitz-backend-v7zy.onrender.com/api/reviews/${event.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setReviews(res.data);
@@ -167,7 +167,7 @@ function ExperienceModal({ event, onClose }) {
         if (!window.confirm("Are you sure you want to delete this memory?")) return;
         const token = localStorage.getItem("jwt_token");
         try {
-            await axios.delete(`http://localhost:8080/api/reviews/${reviewId}`, {
+            await axios.delete(`https://ticketblitz-backend-v7zy.onrender.com/api/reviews/${reviewId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setReviews(reviews.filter(r => r.id !== reviewId));
@@ -211,7 +211,7 @@ function ExperienceModal({ event, onClose }) {
             let res;
             if (editingId) {
                 // UPDATE (PUT)
-                res = await axios.put(`http://localhost:8080/api/reviews/${editingId}`, payload, {
+                res = await axios.put(`https://ticketblitz-backend-v7zy.onrender.com/api/reviews/${editingId}`, payload, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 // Update list locally
@@ -219,7 +219,7 @@ function ExperienceModal({ event, onClose }) {
                 setEditingId(null); // Exit edit mode
             } else {
                 // CREATE (POST)
-                res = await axios.post(`http://localhost:8080/api/reviews/${event.id}`, payload, {
+                res = await axios.post(`https://ticketblitz-backend-v7zy.onrender.com/api/reviews/${event.id}`, payload, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setReviews([res.data, ...reviews]);
