@@ -36,7 +36,7 @@ export default function ProposalsTracker() {
              * Queries the backend for proposals associated with the logged-in email.
              */
             const res = await axios.get(
-                `http://localhost:8080/api/partners/my-proposals?email=${userEmail}`, 
+                `https://ticketblitz-backend-v7zy.onrender.com/api/partners/my-proposals?email=${userEmail}`, 
                 config
             );
             
