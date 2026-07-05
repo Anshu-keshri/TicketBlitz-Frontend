@@ -25,7 +25,7 @@ export default function Register() {
 
     try {
       // REGISTRATION HANDSHAKE
-      await axios.post("http://localhost:8080/api/auth/register", formData);
+      await axios.post("https://ticketblitz-backend-v7zy.onrender.com/api/auth/register", formData);
       
       // SUCCESS REDIRECTION: Standard practice to force login for security verification
       navigate("/login", { state: { message: "Account created! Secure your session below." } });
