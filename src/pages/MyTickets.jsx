@@ -72,7 +72,7 @@ const MyTickets = () => {
             if (!token) { navigate("/login"); return; }
 
             try {
-                const res = await axios.get(`http://localhost:8080/api/stock/my-tickets`, {
+                const res = await axios.get(`https://ticketblitz-backend-v7zy.onrender.com/api/stock/my-tickets`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setTickets(res.data);
