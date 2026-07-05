@@ -21,7 +21,7 @@ const HomePage = ({ searchQuery = "", onSearch, activeCategory = "All" }) => {
         const fetchEvents = async () => {
             const token = localStorage.getItem("jwt_token");
             try {
-                const res = await axios.get('http://localhost:8080/api/events', {
+                const res = await axios.get('https://ticketblitz-backend-v7zy.onrender.com/api/events', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.data && Array.isArray(res.data)) {
